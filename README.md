@@ -17,6 +17,23 @@ npm rm -g gulp
 npm install -g gulp-cli
 ```
 
+```
+ts2304 problems: http://stackoverflow.com/questions/31173738/typescript-getting-error-ts2304-cannot-find-name-require
+ts2428:
+the workaround I'm using is to comment out the weakmap definition:
+
+file: node_modules\@types\lodash\index.d.ts
+
+// Backward compatibility with --target es5
+declare global {
+    interface Set<T> { }
+    interface Map<K, V> { }
+    interface WeakSet<T> { }
+    //interface WeakMap<K, V> { }
+}
+
+```
+
 If everything worked `gulp -v` should give you a version number over 4.
 
 You will also need to copy the `config.sample.js` file to `config.js` and fill out the pertenent information. It should look like this:
@@ -44,7 +61,7 @@ module.exports = {
     },
 
     options: {
-        
+
     }
 }
 ```

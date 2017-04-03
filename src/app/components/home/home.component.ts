@@ -10,21 +10,9 @@ interface ContactCard extends IContact {
     moduleId: module.id,
     selector: 'home',
     templateUrl: 'home.component.html',
-    animations: [
-        trigger('cardState', [
-            state('hovering', style({
-                transform: 'scale(1.05)'
-            })),
-            state('normal', style({
-               transform: 'scale(1)'
-           })),
-            transition('normal => hovering', animate('200ms ease-in')),
-            transition('hovering => normal', animate('200ms ease-out'))
-        ])
-    ]
 })
 export class HomeComponent implements OnInit {
-    
+
     private contacts: ContactCard[] = [];
 
     constructor(private sfdc: SalesforceService, private log: LoggerService) {}

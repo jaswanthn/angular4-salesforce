@@ -5,7 +5,7 @@
 <div class="ui four column grid">
     <div class="column" *ngFor="let c of contacts">
         <a [routerLink]="['/contact/view', c.Id]">
-            <div class="ui fluid card" [@cardState]="c.state" (mouseover)="c.state = 'hovering'" (mouseleave)="c.state = 'normal'">
+            <div class="ui fluid card">
                 <div class="image">
                     <img [gravatar]="c.Email">
                 </div>
